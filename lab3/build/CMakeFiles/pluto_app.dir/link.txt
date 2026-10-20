@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/pluto_app.dir/link.d CMakeFiles/pluto_app.dir/main.cpp.o -o pluto_app  -Wl,-rpath,/usr/local/lib /usr/local/lib/libSoapySDR.so.0.8.1 -lm -pthread

@@ -1,0 +1,3 @@
+/home/mikhail/dev/build/CMakeFiles/main.dir
+/home/mikhail/dev/build/CMakeFiles/edit_cache.dir
+/home/mikhail/dev/build/CMakeFiles/rebuild_cache.dir

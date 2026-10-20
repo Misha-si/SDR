@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/main.dir/link.d CMakeFiles/main.dir/main.c.o -o main   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib -lSoapySDR -lm
