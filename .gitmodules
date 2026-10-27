@@ -1,18 +1,3 @@
-[submodule "thirdparty/SoapySDR"]
-	path = thirdparty/SoapySDR
-	url = https://github.com/TelecomDep/SoapySDR.git
-    branch = soapy-sdr-0.8.1
-
-[submodule "thirdparty/libiio"]
-	path = thirdparty/libiio
-	url = https://github.com/TelecomDep/libiio.git
-    branch = v0.24
-
-[submodule "thirdparty/libad9361-iio"]
-	path = thirdparty/libad9361-iio
-	url = https://github.com/TelecomDep/libad9361-iio.git
-    branch = v0.3
-
 [submodule "thirdparty/SoapyPlutoSDR"]
 	path = thirdparty/SoapyPlutoSDR
 	url = https://github.com/TelecomDep/SoapyPlutoSDR.git
