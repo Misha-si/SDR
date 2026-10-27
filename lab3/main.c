@@ -98,7 +98,7 @@ int main(int argc, char **argv)
     // Наполнение: поднесущая 50 кГц через каждый второй отсчет (сэмпл - 0 - сэмпл - 0)
     double f_sub = 50e3;
     for (size_t s = 0; s < tx_mtu; s++) {
-        if (s % 2 == 0) {
+        if (s % 10 == 0) {
             double phase = 2.0 * 3.1415926535 * f_sub * s / SAMPLE_RATE;
             tx_buff[2 * s]     = (int16_t)((int16_t)(2000.0 * cos(phase)) << 4);
             tx_buff[2 * s + 1] = (int16_t)((int16_t)(2000.0 * sin(phase)) << 4);

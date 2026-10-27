@@ -1,15 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(main C)
+project(main CXX)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Release)
 
-# Добавляем стандартные пути установки SoapySDR
+# Пути к заголовкам и библиотекам SoapySDR
 include_directories(/usr/local/include)
 link_directories(/usr/local/lib)
 
-add_executable(main main.c)
+add_executable(main main.cpp)
 
-# Линкуем напрямую SoapySDR и математическую библиотеку m
-target_link_libraries(main PRIVATE SoapySDR m)
+# Линковка с библиотекой SoapySDR (в C++ math library линкуется автоматически)
+target_link_libraries(main PRIVATE SoapySDR)
