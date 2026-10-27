@@ -20,3 +20,6 @@
 [submodule "thirdparty/SouplyPlutoSDR"]
 	path = thirdparty/SouplyPlutoSDR
 	url = https://github.com/TelecomDep/SoapyPlutoSDR.git
+[submodule "thirdparty/libad9361-lio"]
+	path = thirdparty/libad9361-lio
+	url = https://github.com/TelecomDep/libad9361-iio.git
