@@ -6,8 +6,8 @@
 #include <stdlib.h>  //free
 #include <string.h>  //strcmp
 
-int freq1=810e6;
-int freq2=870e6;
+int freq1=800e6;
+int freq2=850e6;
 
 SoapySDRDevice *make_device(const char *uri) {
   SoapySDRKwargs args = {};
@@ -25,7 +25,7 @@ SoapySDRDevice *make_device(const char *uri) {
 int run(const char *uri, bool is_tx) {
   SoapySDRDevice *sdr = make_device(uri);
 
-  int sample_rate = 1e6;
+  int sample_rate = 2e6;
   int rx_freq = freq1;
   int tx_freq = freq2;
   const char *filename = "rxdata.pcm";
@@ -42,8 +42,8 @@ int run(const char *uri, bool is_tx) {
   SoapySDRDevice_setFrequency(sdr, SOAPY_SDR_TX, 0, tx_freq, NULL);
 
   size_t channels[] = {0};
-  SoapySDRDevice_setGain(sdr, SOAPY_SDR_RX, *channels,30.0);
-  SoapySDRDevice_setGain(sdr, SOAPY_SDR_TX, *channels, 0);
+  SoapySDRDevice_setGain(sdr, SOAPY_SDR_RX, *channels,45.0);
+  SoapySDRDevice_setGain(sdr, SOAPY_SDR_TX, *channels, 45.0);
   size_t channel_count = sizeof(channels) / sizeof(channels[0]);
 
   SoapySDRStream *rxStream = SoapySDRDevice_setupStream(sdr, SOAPY_SDR_RX, SOAPY_SDR_CS16, channels, channel_count, NULL);
@@ -59,7 +59,7 @@ int run(const char *uri, bool is_tx) {
 
   const long timeoutUs = 400000;
   long long last_time = 0;
-  FILE *file = fopen(filename, "a+");
+  FILE *file = fopen(filename, "w");
   size_t buffers_read = 0;
 
   for (int i = 2; i < 2 * tx_mtu; i+=2)
@@ -108,7 +108,7 @@ int run(const char *uri, bool is_tx) {
 
     // Здесь отправляем наш tx_buff массив
     void *tx_buffs[] = {tx_buff};
-    if( (buffers_read % 10 == 0) ){
+    if( (buffers_read % 2 == 0) ){
         printf("buffers_read: %d\n", buffers_read);
         flags = SOAPY_SDR_HAS_TIME;
         int st = SoapySDRDevice_writeStream(sdr, txStream, (const void * const*)tx_buffs, tx_mtu, &flags, tx_time, timeoutUs);
